@@ -35,7 +35,7 @@ export interface ITreeSelectNode {
 }
 
 let mainList: ITreeSelectNode[] = [];
-export const TreeSelectCheckable: FC<ITreeSelect> = ({
+export const NestedCheckbox: FC<ITreeSelect> = ({
   list,
   label,
   placeholder,

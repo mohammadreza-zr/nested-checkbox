@@ -1,0 +1,69 @@
+{
+  "name": "nested-checkbox",
+  "version": "1.0.0",
+  "description": "nested checkbox for react",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bunchee",
+    "dev": "bunchee --watch",
+    "dev:website": "turbo run dev --filter=website...",
+    "dev:test": "turbo run dev --filter=test...",
+    "format": "prettier --write .",
+    "test": "playwright test"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "tree",
+    "select",
+    "nested",
+    "checkbox"
+  ],
+  "author": {
+    "email": "mohammadreza.zr@yahoo.com",
+    "name": "Mohammadreza Zare",
+    "url": "https://mr-zare.ir"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/mohammadreza-zr/nested-checkbox/Readme.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammadreza-zr/nested-checkbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mohammadreza-zr/nested-checkbox/issues"
+  },
+  "packageManager": "npm@10.2.3",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.11.0",
+    "@types/react": "^18.2.47",
+    "bunchee": "^4.3.3",
+    "prettier": "^3.1.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "turbo": "^1.11.3",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

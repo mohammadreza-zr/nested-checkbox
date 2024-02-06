@@ -1,6 +1,6 @@
 {
   "name": "nested-checkbox",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "nested checkbox for react",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -42,7 +42,7 @@
     "url": "https://mr-zare.ir"
   },
   "license": "MIT",
-  "homepage": "https://github.com/mohammadreza-zr/nested-checkbox/Readme.md",
+  "homepage": "https://nested-ckeckbox-docs.vercel.app",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mohammadreza-zr/nested-checkbox.git"

@@ -27,6 +27,8 @@
   border: 1px solid var(--gray);
   border-radius: 8px;
   padding: 8px 10px;
+  font-size: 14px;
+  min-height: 39px;
 }
 .nested-checkbox__label--input:placeholder-shown {
   font-size: 12px;
@@ -44,6 +46,7 @@
   z-index: 100;
   margin-top: 0.4rem;
   border: 0px solid var(--second-color);
+  background-color: var(--white);
 }
 .nested-checkbox__container {
   display: flex;

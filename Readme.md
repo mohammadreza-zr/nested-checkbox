@@ -17,6 +17,6 @@ npm install nested-checkbox
 
 # Screenshots
 
-![Screenshot-nested-checkbox](https://nested-ckeckbox-docs.vercel.app/Screenshot-nested-checkbox.png)
-![Screenshot-nested-checkbox-modal](https://nested-ckeckbox-docs.vercel.app/Screenshot-nested-checkbox-modal.png)
-![Screenshot-nested-checkbox-example](https://nested-ckeckbox-docs.vercel.app/Screenshot-nested-checkbox-example.png)
+<img src="https://nested-ckeckbox-docs.vercel.app/Screenshot-nested-checkbox.png" alt="Screenshot-nested-checkbox" width="400">
+<img src="https://nested-ckeckbox-docs.vercel.app/Screenshot-nested-checkbox-example.png" alt="Screenshot-nested-checkbox-example" width="400">
+<img src="https://nested-ckeckbox-docs.vercel.app/Screenshot-nested-checkbox-modal.png" alt="Screenshot-nested-checkbox-modal" width="400">

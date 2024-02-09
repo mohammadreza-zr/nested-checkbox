@@ -1,6 +1,6 @@
 {
   "name": "nested-checkbox",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "nested checkbox for react",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

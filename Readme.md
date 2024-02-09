@@ -14,3 +14,9 @@ You can install the package via npm:
 ```bash
 npm install nested-checkbox
 ```
+
+# Screenshots
+
+![Screenshot-nested-checkbox](https://nested-ckeckbox-docs.vercel.app/Screenshot-nested-checkbox.png)
+![Screenshot-nested-checkbox-modal](https://nested-ckeckbox-docs.vercel.app/Screenshot-nested-checkbox-modal.png)
+![Screenshot-nested-checkbox-example](https://nested-ckeckbox-docs.vercel.app/Screenshot-nested-checkbox-example.png)

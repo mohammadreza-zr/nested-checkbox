@@ -36,7 +36,7 @@ export const NestedCheckbox = ({
   selectedList,
   selectedListValues,
   required,
-  dir,
+  dir = 'ltr',
   showCount,
   showModal,
   emptyMessage,
@@ -248,6 +248,19 @@ const Node = ({
                     setForceRender((pre) => !pre);
                   }}
                   checked={item.isChecked}
+                  ref={(input) => {
+                    if (input) {
+                      const hasChildren = item.child.length > 0;
+                      const allChecked = hasChildren ? areAllChildrenChecked(item) : false;
+                      const someChecked = hasChildren ? hasSomeChildrenChecked(item) : false;
+
+                      if (hasChildren && someChecked && !allChecked) {
+                        input.indeterminate = true;
+                      } else {
+                        input.indeterminate = false;
+                      }
+                    }
+                  }}
                   className="nested-checkbox__node__element__checkbox--input"
                 />
                 <p>{item.title}</p>
@@ -297,8 +310,27 @@ export function areAllChildrenChecked(node: NestedNodeType): boolean {
   });
 }
 
+export function hasSomeChildrenChecked(node: NestedNodeType): boolean {
+  return node.child.some((child) => {
+    if (child.child.length) {
+      return hasSomeChildrenChecked(child);
+    }
+    return child.isChecked;
+  });
+}
+
 function updateParentCheckedState(node: NestedNodeType): boolean {
-  node.isChecked = areAllChildrenChecked(node);
+  const allChecked = areAllChildrenChecked(node);
+  const someChecked = hasSomeChildrenChecked(node);
+
+  if (allChecked) {
+    node.isChecked = true;
+  } else if (someChecked) {
+    node.isChecked = false;
+  } else {
+    node.isChecked = false;
+  }
+
   return node.isChecked;
 }
 
@@ -318,7 +350,6 @@ const setIsChecked = (item: NestedNodeType[], checked: boolean): NestedNodeType[
   });
 };
 
-// ************************************************
 const checkNode = (node: NestedNodeType, search: string) => {
   if (node.title.includes(search)) node.show = true;
   else node.show = false;
@@ -344,8 +375,6 @@ const iterateNodes = (list: NestedNodeType[], search: string) => {
 
   return newList;
 };
-
-// ************************************************
 
 const handleChildChecked = (item: NestedNodeType, checked: boolean) => {
   item.isChecked = checked;
@@ -381,10 +410,10 @@ const getAllSelectedValues = (list: NestedNodeType[], output: string[]): string[
   return [...new Set(output)];
 };
 
-function counter(node: NestedNodeType, count = 0): number {
+function countCheckedChildren(node: NestedNodeType, count = 0): number {
   node.child.forEach((child) => {
     if (child.child.length) {
-      count = counter(child, count);
+      count = countCheckedChildren(child, count);
     }
     if (child.isChecked) {
       count = count + 1;
@@ -397,7 +426,7 @@ function counter(node: NestedNodeType, count = 0): number {
 const countProcess = (list: NestedNodeType[]): number => {
   let count = 0;
   for (let index = 0; index < list.length; index++) {
-    count = count + counter(list[index]);
+    count = count + countCheckedChildren(list[index]);
     if (list[index].isChecked) {
       count = count + 1;
     }

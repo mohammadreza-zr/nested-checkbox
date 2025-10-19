@@ -8,21 +8,22 @@
  * @param props
  * @returns string
  */
-export const classNames = (...props: any) => {
+export const classNames = (...props: (string | Record<string, any>)[]): string => {
   const classes: string[] = [];
-  props.forEach((item: any) => {
+
+  for (const item of props) {
     if (typeof item === 'string') {
       classes.push(item);
-    } else if (typeof item === 'object') {
-      Object.entries(item).forEach(([key, value]) => {
-        if (value === true || value === false) {
-          if (value) classes.push(key);
-        } else {
-          classes.push(value as any);
+    } else if (item && typeof item === 'object') {
+      for (const [key, value] of Object.entries(item)) {
+        if (value === true) {
+          classes.push(key);
+        } else if (value && typeof value === 'string') {
+          classes.push(value);
         }
-      });
+      }
     }
-  });
+  }
 
   return classes.join(' ');
 };
